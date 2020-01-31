@@ -1,0 +1,12 @@
+{
+  "name": "deep-merge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "node test.js"
+  },
+  "author": "John L. Carveth <jlcarveth@gmail.com>",
+  "license": "ISC"
+}
