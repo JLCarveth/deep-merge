@@ -15,6 +15,8 @@
  */
 function mergeObjects (baseObj, secondObj) {
     const finalObj = {}
+
+    if (secondObj == undefined) return baseObj
     for (var key in baseObj) {
         var property    = baseObj[key]
         var newProp     = secondObj[key]
@@ -30,8 +32,48 @@ function mergeObjects (baseObj, secondObj) {
     return finalObj
 }
 
+/**
+ * @param {Object} a
+ * @param {Object} b
+ */
+function isEqual (a,b) {
+    if (typeof a != typeof b) return false
+    if (isObject(a) && isObject(b)) {
+        return __isEqual(a,b)
+    }
+    else return a == b
+}
+
+/**
+ * Private recursive function to determine structural equality.
+ * This method is only called on two objects.
+ * @param {Object} a 
+ * @param {Object} b 
+ */
+function __isEqual (a,b) {
+    var equal = true
+    const aLen = Object.keys(a).length
+    const bLen = Object.keys(b).length
+
+    if (aLen != bLen) return false
+    for (const key in a) {
+        if (isObject(a[key])) {
+            if (isObject(b[key])) {
+                equal = equal && __isEqual(a[key],b[key])
+            } else return false
+        } else {
+            // Assuming they are not objects
+            equal = equal && (a[key] == b[key])
+        }
+    }
+    return equal
+}
+
 function isObject (obj) {
     return (obj && typeof(obj) === "object" && !Array.isArray(obj))
 }
 
-module.exports = mergeObjects
+module.exports = {
+    "merge" : mergeObjects,
+    "equals" : isEqual
+}
