@@ -1,6 +1,6 @@
 {
   "name": "deeper-merge",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,9 @@
     "test": "node test.js"
   },
   "author": "John L. Carveth <jlcarveth@gmail.com>",
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlcarveth/deep-merge"
+  }
 }

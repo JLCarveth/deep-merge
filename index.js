@@ -1,5 +1,5 @@
 /**
- * @module deep-merge
+ * @module deeper-merge
  * @author John L. Carveth
  * @version 0.1.0
  * 

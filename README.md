@@ -4,7 +4,20 @@ A small tool used to recursively merge nested javascript objects. The primary fu
   
 The base object can have new properties added as the software is developped, and those new properties will be persisted to the existing user configuration. If there is a field that already exists in the user configuration, it is preserved.
 
-For example:
+# Installation
+    
+    npm install deeper-merge --save
+
+# Example
+
+    const deepmerge = require('deeper-merge')
+
+    const baseObj   = {...}
+    const secondObj = {...}
+
+    const merged = deepmerge.merge(baseObj,secondObj)
+
+An example merging two configuration files:
 
     const baseConfig = {
         "port" : 8080,
@@ -40,16 +53,3 @@ In the above example, the properties that were modified by the user were preserv
 | equals   |  - a {Object} - b {Object}  | Validates if the two objects are structurally equal.                                   | Return true if a == b.                                 |
 | merge    |  - a {Object} - b {Object}  | Performs a recursive deep merge on the two objects. All properties of b are preserved. | Returns an object with the properties of both a and b. |
 |||||
-
-# Example
-
-    const deepmerge = require('deeper-merge')
-
-    const baseObj   = {...}
-    const secondObj = {...}
-
-    const merged = deepmerge.merge(baseObj,secondObj)
-
-# Installation
-    
-    npm install deeper-merge --save
