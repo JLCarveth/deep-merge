@@ -17,6 +17,7 @@ function mergeObjects (baseObj, secondObj) {
     const finalObj = {}
 
     if (secondObj == undefined) return baseObj
+    if (baseObj == undefined) return secondObj
     for (var key in baseObj) {
         var property    = baseObj[key]
         var newProp     = secondObj[key]
@@ -28,7 +29,17 @@ function mergeObjects (baseObj, secondObj) {
             finalObj[key] = newProp
         }
     }
-    //for (var key in secondObj) finalObj[key] = __mergeObjects(key,secondObj, baseObj)
+    for (var key in secondObj) {
+        var property    = baseObj[key]
+        var newProp     = secondObj[key]
+        if (isObject(newProp)) {
+            finalObj[key] = mergeObjects(property, newProp)
+        } else if (property == undefined) {
+            finalObj[key] = newProp
+        } else {
+            finalObj[key] = newProp
+        }
+    }
     return finalObj
 }
 
