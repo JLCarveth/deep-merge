@@ -1,4 +1,4 @@
-# deep-merge
+# deeper-merge
 
 A small tool used to recursively merge nested javascript objects. The primary function of this module is `merge(a,b)`. This function takes two objects, `a` and `b`, and returns a new object with merged properties from both parameters. This module was designed to solve the problem of merging an existing user-modified configuration object with a base configuration object.   
   
