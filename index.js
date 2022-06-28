@@ -1,7 +1,7 @@
 /**
  * @module deeper-merge
  * @author John L. Carveth
- * @version 0.1.0
+ * @version 1.0.0
  * 
  * Used to recursively merge a base object with another object (Second object).
  */
